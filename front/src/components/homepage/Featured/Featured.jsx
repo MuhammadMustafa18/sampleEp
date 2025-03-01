@@ -9,9 +9,9 @@ import CountUp from "./CountUp";
 import img1 from "../../../assets/img1.jpg"
 import img2 from "../../../assets/img2.jpg";
 import Card from "./Card";
-import LoadAnimation from "../LoadAnimation";
 import SplitText from "../Splittext";
 import SlideInText from "../Slidein";
+import RevealFromMiddle from "../Revealfrommiddle";
 
 
 
@@ -24,7 +24,7 @@ export default function Featured() {
 
   return (
     <div className="p-6 bg-white">
-        <SlideInText direction="down" duration={1.0}>
+        <SlideInText direction="up" duration={1.0} delay={0.75}>
 
       <div className="text-sm text-gray-500 mb-5">
         Recent AI Driven Recommendations
@@ -32,7 +32,7 @@ export default function Featured() {
         </SlideInText>
 
       <div className="flex justify-between ">
-        <SlideInText>
+        <SlideInText direction="down" duration={1} delay={0.5}>
           <h2 className="text-5xl sm:text-7xl tracking-tighter font-medium mb-3">
             Recent Events
           </h2>
@@ -54,8 +54,9 @@ export default function Featured() {
       <div className="flex items-center flex-wrap justify-between mt-4 text-sm sm:texl-lg">
         <SlideInText duration={1.0} direction="left">
 
-        <div className="flex items-center flex-wrap gap-4 mb-4 ">
-          <button className="flex items-center gap-2 px-4 py-2 border rounded-lg text-gray-700 ">
+        <div className="flex items-center flex-wrap gap-4 ">
+          
+          <button className="flex items-center gap-2 px-6 py-3 bg-gray-50 rounded-3xl text-gray-700 ">
             <SlidersHorizontal size={16} /> Filter
           </button>
 
@@ -66,9 +67,13 @@ export default function Featured() {
         </SlideInText>
 
         <div className=" items-center gap-4">
+          <RevealFromMiddle>
+
           <button className="bg-black text-white px-10 py-3 rounded-full text-md hover:bg-gray-700 transition-colors duration-300">
             View all
           </button>
+          </RevealFromMiddle>
+
         </div>
       </div>
       <hr className="my-7 border-gray-300" />
@@ -175,7 +180,7 @@ export function FeaturedProperties() {
 
 function Dropdown({ label, setLabel }) {
   return (
-    <button className="flex items-center gap-2 px-4 py-2 border rounded-lg bg-gray-100 text-gray-700">
+    <button className="flex items-center gap-2 px-6 py-3  rounded-3xl bg-gray-50 text-gray-700">
       {label} <ChevronDown size={16} />
     </button>
   );

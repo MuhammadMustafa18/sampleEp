@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import heroVideo from "../assets/hero2.mp4";
 import { useRef, useEffect, useState } from "react";
 import { useSprings, animated } from "@react-spring/web";
+import RevealFromMiddle from "./homepage/Revealfrommiddle";
 
 const BlurText = ({
   text = "",
@@ -129,9 +130,11 @@ const Hero = () => {
           direction="top"
           className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl mb-8 text-white font-primary shadow-xl"
         />
+        <RevealFromMiddle>
         <button className="bg-white text-black px-6 py-3 rounded-full font-semibold text-lg hover:bg-gray-200 transition-colors duration-300">
           Get Started
         </button>
+        </RevealFromMiddle>
       </div>
     </div>
   );

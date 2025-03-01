@@ -4,6 +4,7 @@ import img1 from "../../assets/img1.jpg";
 import img2 from "../../assets/img2.jpg";
 import img3 from "../../assets/img3.jpg";
 import img4 from "../../assets/img4.jpg";
+import RevealFromMiddle from "./Revealfrommiddle";
 
 const CutCornerSquare = ({ backgroundImage, text, overlay }) => {
   
@@ -76,6 +77,8 @@ function Button() {
   const [isPressed, setIsPressed] = useState(false);
 
   return (
+    
+
     <button class="bg-black text-white border border-gray-400 border-b-4 font-medium overflow-hidden relative px-4 py-2 rounded-md hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 outline-none duration-300 group">
       <span class="bg-gray-400 shadow-gray-400 absolute -top-[150%] left-0 inline-flex w-80 h-[5px] rounded-md opacity-50 group-hover:top-[150%] duration-500 shadow-[0_0_10px_10px_rgba(0,0,0,0.3)]"></span>
       Know More
@@ -212,9 +215,12 @@ const Description = () => {
       </div>
 
       {/* Button */}
+      <RevealFromMiddle>
+
       <button className="bg-black text-white px-10 py-3 rounded-full text-md hover:bg-gray-700 transition-colors duration-300">
         Know More
       </button>
+      </RevealFromMiddle>
 
       {/* Subsequent Animations */}
       <div className="flex justify-center">
