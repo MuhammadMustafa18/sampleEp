@@ -2,19 +2,17 @@ import { useState } from "react";
 import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { RiDoubleQuotesR } from "react-icons/ri";
 import SlideInText from "../Slidein";
-import RevealFadeInText from "../LoadAnimation";
-import RevealFromMiddle from "../Revealfrommiddle";
 
 const testimonials = [
   {
     text: "Working with this team was an absolute pleasure. They helped me find the perfect property that matched all my needs and preferences. Their expertise and attention to detail made the entire process smooth and stress-free. I couldn’t be happier with my new home!",
-    name: "ali",
+    name: "Ali",
     location: "Dubai",
     date: "December 2024",
     image: "https://randomuser.me/api/portraits/men/1.jpg ",
   },
   {
-    text: "yo with this team was an absolute pleasure. They helped me find the perfect property that matched all my needs and preferences. Their expertise and attention to detail made the entire process smooth and stress-free. I couldn’t be happier with my new home!",
+    text: "Yo with this team was an absolute pleasure. They helped me find the perfect property that matched all my needs and preferences. Their expertise and attention to detail made the entire process smooth and stress-free. I couldn’t be happier with my new home!",
     name: "James",
     location: "Dubai",
     date: "December 2024",
@@ -36,6 +34,9 @@ export default function Testimonial() {
       prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
     );
   };
+
+  // Calculate progress bar width
+  const progressWidth = ((index + 1) / testimonials.length) * 100;
 
   return (
     <div className="flex flex-col items-start px-8 mt-24 mb-36 bg-white text-gray-900">
@@ -79,51 +80,60 @@ export default function Testimonial() {
         <div className="w-full sm:w-2/3 flex flex-col sm:flex-row items-center md:items-start">
           <RiDoubleQuotesR className="p-3 text-white bg-amber-500 w-12 h-12 mb-4 rounded-full" />
           <SlideInText direction="left" delay={0.25}>
-            
-          <div className="rounded-lg lg:mt-0 sm:mt-4 sm:ml-8 max-w-5xl text-2xl text-center sm:text-left">
-            <div className="lg:max-w-3xl">
-              <SlideInText direction="inplace" duration={2} key={index}>
-                <p className="text-gray-900 text-lg sm:text-2xl">
-                  {testimonials[index].text}
-                </p>
-              </SlideInText>
-            </div>
-
-            <div className="flex flex-col items-center sm:flex-row sm:justify-between  w-full mt-4">
-              <SlideInText direction="inplace" duration={1} key={index}>
-
-              <div className="flex items-center">
-                <img
-                  className="w-10 h-10 rounded-full border-2 border-white"
-                  src={testimonials[index].image}
-                  alt={testimonials[index].name}
+            <div className="rounded-lg lg:mt-0 sm:mt-4 sm:ml-8 max-w-5xl text-2xl text-center sm:text-left">
+              <div className="lg:max-w-3xl">
+                <SlideInText direction="inplace" duration={2} key={index}>
+                  <p className="text-gray-900 text-lg sm:text-2xl">
+                    {testimonials[index].text}
+                  </p>
+                </SlideInText>
+              </div>
+              {/* Progress Bar */}
+              <div className="w-90% mt-4 bg-gray-200 rounded-full h-0.5">
+                <div
+                  className="h-full bg-black rounded-full"
+                  style={{
+                    width: `${progressWidth}%`,
+                    transition: "width 0.5s ease",
+                  }}
                 />
-                <div className="ml-3 text-left">
-                  <p className="text-lg font-semibold">
-                    {testimonials[index].name}
-                  </p>
-                  <p className="text-gray-500 text-sm">
-                    {testimonials[index].location}, {testimonials[index].date}
-                  </p>
+              </div>
+              <div className="flex flex-col items-center sm:flex-row sm:justify-between w-full mt-4">
+                <SlideInText direction="inplace" duration={1} key={index}>
+                  <div className="flex items-center">
+                    <img
+                      className="w-10 h-10 rounded-full border-2 border-white"
+                      src={testimonials[index].image}
+                      alt={testimonials[index].name}
+                    />
+                    <div className="ml-3 text-left">
+                      <p className="text-lg font-semibold">
+                        {testimonials[index].name}
+                      </p>
+                      <p className="text-gray-500 text-sm">
+                        {testimonials[index].location},{" "}
+                        {testimonials[index].date}
+                      </p>
+                    </div>
+                  </div>
+                </SlideInText>
+
+                <div className="flex justify-center sm:justify-center md:justify-end lg:justify-en w-full space-x-4 mt-4">
+                  <button
+                    onClick={prevTestimonial}
+                    className="p-2 bg-gray-200 rounded-full hover:bg-gray-300"
+                  >
+                    <ChevronLeft className="w-5 h-5" />
+                  </button>
+                  <button
+                    onClick={nextTestimonial}
+                    className="p-2 bg-gray-200 rounded-full hover:bg-gray-300"
+                  >
+                    <ChevronRight className="w-5 h-5" />
+                  </button>
                 </div>
               </div>
-              </SlideInText>
-              <div className="flex justify-center sm:justify-center md:justify-end lg:justify-en w-full space-x-4 mt-4">
-                <button
-                  onClick={prevTestimonial}
-                  className="p-2 bg-gray-200 rounded-full hover:bg-gray-300"
-                >
-                  <ChevronLeft className="w-5 h-5" />
-                </button>
-                <button
-                  onClick={nextTestimonial}
-                  className="p-2 bg-gray-200 rounded-full hover:bg-gray-300"
-                >
-                  <ChevronRight className="w-5 h-5" />
-                </button>
-              </div>
             </div>
-          </div>
           </SlideInText>
         </div>
       </div>

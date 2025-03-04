@@ -19,10 +19,10 @@ const CutCornerSquare = ({ backgroundImage, text, overlay }) => {
             clipPath:
               "polygon(0 0, calc(100% - 100px) 0, 100% 100px, 100% 100%, 5px 100%, 0 calc(100% - 10px))",
           }}
-          className={`absolute w-61.75 top-0 right-0  ${overlay} bg-gray-100 z-10`}
+          className={`absolute w-61.75 top-0 right-0 ${overlay} bg-gray-100 z-10`}
         >
           <span
-            className={`absolute bottom-0 left-1/3 ml-2 transform -translate-x-1/2 -translate-y-1/6 text-4xl font-medium text-black`}
+            className={`absolute left-1/3 ml-2 top-24 transform -translate-x-1/2 -translate-y-1/6 text-3xl font-medium text-black`}
           >
             {text}
           </span>
@@ -46,7 +46,7 @@ const CutCornerSquare = ({ backgroundImage, text, overlay }) => {
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
         {/* Text color changes based on overlay */}
         <span
-          className={`absolute top-1/2 left-1/3 ml-3 transform -translate-x-1/2 -translate-y-1/2 text-4xl ${
+          className={`absolute top-28 left-1/3 ml-3 transform -translate-x-1/2 -translate-y-1/2 text-3xl ${
             overlay ? "text-black" : "text-white"
           }`}
         >
@@ -216,10 +216,9 @@ const Description = () => {
 
       {/* Button */}
       <RevealFromMiddle>
-
-      <button className="bg-black text-white px-10 py-3 rounded-full text-md hover:bg-gray-700 transition-colors duration-300">
-        Know More
-      </button>
+        <button className="bg-black text-white px-10 py-3 rounded-full text-md hover:bg-gray-700 transition-colors duration-300">
+          Know More
+        </button>
       </RevealFromMiddle>
 
       {/* Subsequent Animations */}
@@ -230,12 +229,13 @@ const Description = () => {
           animate={controls}
           whileTap={{ scale: 0.9, rotate: -5 }}
           transition={{
+            delay: 1, // add a delay of 0.5 seconds
             duration: 3,
             times: [0, 0.1, 0.3, 0.5, 0.7, 0.85, 1],
             ease: "easeInOut",
           }}
         >
-          <CutCornerSquare backgroundImage={img1} text="Hello World" />
+          <CutCornerSquare backgroundImage={img1} text="Venue Booking" />
         </motion.div>
         <motion.div
           className="w-auto mx-4 sm:block hidden"
@@ -243,6 +243,7 @@ const Description = () => {
           animate={controls2}
           whileTap={{ scale: 0.9, rotate: -5 }}
           transition={{
+            delay: 1,
             duration: 3,
             times: [0, 0.1, 0.3, 0.5, 0.7, 0.85, 1],
             ease: "easeInOut",
@@ -251,7 +252,7 @@ const Description = () => {
           <CutCornerSquare
             backgroundImage={img2}
             overlay="h-2/3"
-            text="Hello World"
+            text="Seamless Execution"
           />
         </motion.div>
         <motion.div
@@ -260,12 +261,13 @@ const Description = () => {
           animate={controls}
           whileTap={{ scale: 0.9, rotate: -5 }}
           transition={{
+            delay: 1,
             duration: 3,
             times: [0, 0.1, 0.3, 0.5, 0.7, 0.85, 1],
             ease: "easeInOut",
           }}
         >
-          <CutCornerSquare backgroundImage={img3} text="Hello World" />
+          <CutCornerSquare backgroundImage={img3} text="Catering Setup" />
         </motion.div>
         <motion.div
           className="w-auto mx-4 sm:block hidden"
@@ -273,6 +275,7 @@ const Description = () => {
           animate={controls2}
           whileTap={{ scale: 0.9, rotate: -5 }}
           transition={{
+            delay: 1,
             duration: 3,
             times: [0, 0.1, 0.3, 0.5, 0.7, 0.85, 1],
             ease: "easeInOut",
@@ -281,7 +284,7 @@ const Description = () => {
           <CutCornerSquare
             backgroundImage={img4}
             overlay="h-2/3"
-            text="Hello World"
+            text="Budget Control"
           />
         </motion.div>
       </div>

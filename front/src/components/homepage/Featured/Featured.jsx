@@ -6,8 +6,10 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import CountUp from "./CountUp";
-import img1 from "../../../assets/img1.jpg"
-import img2 from "../../../assets/img2.jpg";
+import img1 from "../../../assets/event1.webp"
+import img3 from "../../../assets/event3.jfif";
+import img2 from "../../../assets/event2.jpg";
+import img4 from "../../../assets/event4.webp";
 import Card from "./Card";
 import SplitText from "../Splittext";
 import SlideInText from "../Slidein";
@@ -85,15 +87,31 @@ export default function Featured() {
 const properties = [
   {
     id: "01",
-    title: "Modern studio in Bluewaters Bay",
-    location: "Bluewaters Island",
+    title: "Elegant Wedding at Rosewood Hall",
+    location: "Rosewood Hall, London",
     image: img1, // Replace with actual image source
+    guests: 100,
   },
   {
     id: "02",
-    title: "Luxury apartment in Downtown Elegance",
-    location: "Downtown Dubai",
-    image: img2 // Replace with actual image source
+    title: "Corporate Gala for XYZ Company",
+    location: "Grand Hyatt Ballroom, New York",
+    image: img2, // Replace with actual image source
+    guests: 100,
+  },
+  {
+    id: "03",
+    title: "50th Birthday Bash - Retro Theme",
+    location: "Private Villa, Miami",
+    image: img3, // Replace with actual image source
+    guests: 80,
+  },
+  {
+    id: "04",
+    title: "Baby Shower - Whimsical Garden Party",
+    location: "The Greenhouse Café, California",
+    image: img4, // Replace with actual image source
+    guests: 40,
   },
 ];
 
@@ -130,42 +148,43 @@ export function FeaturedProperties() {
             <ArrowUpRight size={20} />
           </div>
           {/* White Overlay (Appears when card is hovered) */}
-          <div className="absolute py-3 pr-4   flex flex-col justify-between top-0 left-0 w-full h-[350px] bg-gray-200 opacity-100 transition-transform duration-1600 ease-in-out -translate-y-full group-hover:translate-y-0 is-active:translate-y-0 ">
+
+          <div className="absolute py-3 pr-4 flex flex-col justify-between top-0 left-0 w-full h-[350px] bg-gray-200 opacity-100 transition-transform duration-1600 ease-in-out -translate-y-full group-hover:translate-y-0 is-active:translate-y-0 ">
             <div className="flex flex-row mx-6 gap-4 py-3 items-center border-b-2 border-gray-300">
-              <div className="texl-xl sm:text-3xl font-semibold">03</div>
+              <div className="texl-xl sm:text-3xl font-semibold">
+                {property.id}
+              </div>
               <button className="bg-transparent text-sm sm:text-lg ml-5 text-gray-600 border flex items-center border-gray-400 rounded-xl px-2 sm:px-2">
-                <MapPin size={15} className="mr-1" /> Click Me
+                <MapPin size={15} className="mr-1" /> {property.location}
               </button>
 
-              <button className="bg-transparent text-sm sm:text-lg text-gray-600 border border-gray-400 rounded-xl px-2">
-                Click Me
-              </button>
+              
 
-              <div className="ml-auto text-xl font-bold sm:text-3xl text-gray-700">10000000 PKR</div>
+              <div className="ml-auto text-xl font-bold sm:text-3xl text-gray-700">
+                {property.price}
+              </div>
             </div>
 
             <div className="flex p-4">
               {/* Left Column: Two divs stacked vertically */}
               <div className="flex flex-col">
                 <div className="flex flex-row px-4 py-2">
-                  <div className="text-gray-400 mr-3">Developers:</div>
-                  <div>Louisiana</div>
+                  <div className="text-gray-400 mr-2   text-xl">Guests:</div>
+                  <div className="text-xl font-bold">{property.guests}</div>
                 </div>
-                <div className="px-4 text-4xl">A major event</div>
+                <div className="px-4 text-4xl">{property.title}</div>
               </div>
 
               {/* Right Column: Third div horizontally aligned */}
               <div className="bg-gray-300 flex flex-col justify-between py-3 px-3 ml-auto rounded-2xl w-34">
-                {/* Top-right aligned icon */}
                 <ArrowUpRight size={20} className="ml-auto" />
-
-                {/* Bottom-left aligned text */}
                 <div className="mr-auto">
                   View <br /> Details
                 </div>
               </div>
             </div>
           </div>
+
           <div className="absolute bg-gray-200 transition-transform top-0 left-0 w-1/40 h-full duration-1200 ease-in-out -translate-x-full group-hover:translate-x-0 is-active:translate-x-0"></div>
           <div className="absolute bg-gray-200 transition-transform top-0 right-0 w-1/40 h-full duration-1200 ease-in-out translate-x-full group-hover:translate-x-0 is-active:translate-x-0"></div>
           <div className="absolute bg-gray-200 transition-transform bottom-0 left-0 w-full h-1/40 duration-1200 ease-in-out translate-y-full group-hover:translate-y-0 is-active:translate-y-0"></div>
